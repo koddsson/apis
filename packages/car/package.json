@@ -1,7 +1,13 @@
 {
   "name": "@apis/car",
   "version": "1.0.0",
+  "description": "Webscraper for Icelandic car data",
   "main": "index.js",
-  "repository": {},
-  "license": "MIT"
+  "repository": "https://github.com/apis-is/apis",
+  "author": "Kristjan Oddsson",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "request": "^2.79.0"
+  }
 }
