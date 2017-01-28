@@ -11,6 +11,6 @@
  *
  * TODO: Change that URL before landing on master
  */
-export const apisUserAgent = (
+module.export = apisUserAgent = (
   'Mozilla/5.0 (compatible; Apisbot/0.1; +https://github.com/koddsson/apis/blob/master/apis-bot.md)'
 )

@@ -1,12 +1,12 @@
-import $ from 'cheerio'
-import request from 'request'
+const $ = require('cheerio')
+const request = require('request')
 
-import {apisUserAgent} from '../utils'
+const {apisUserAgent} = require('../utils')
 
-export default (plate) => {
+module.exports = (number) => {
   return new Promise((resolve, reject) => {
     // Encode carPlate so that Icelandic characters will work
-    const carPlate = encodeURIComponent(plate)
+    const carPlate = encodeURIComponent(number)
     const url = `http://www.samgongustofa.is/umferd/okutaeki/okutaekjaskra/uppfletting?vq=${carPlate}`
 
     request.get({
@@ -40,7 +40,7 @@ export default (plate) => {
           nextCheck: fields[8],
         })
       } else {
-        reject(`No car found with the registry number ${plate}`)
+        reject(`No car found with the registry number ${number}`)
       }
     })
   })
