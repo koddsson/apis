@@ -6,6 +6,7 @@ const lookupCar = require('./index.js')
 
 describe('car lookup', () => {
   it('should lookup cars by plate number', () => {
+    // TODO: Mock this out.
     return lookupCar('AA031').then((carData) => {
       expect(carData.number).toEqual('AA031')
     })

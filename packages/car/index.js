@@ -1,7 +1,7 @@
 const $ = require('cheerio')
 const request = require('request')
 
-const {apisUserAgent} = require('../utils')
+const apisUserAgent = require('@apis/utils').apisUserAgent
 
 module.exports = (number) => {
   return new Promise((resolve, reject) => {

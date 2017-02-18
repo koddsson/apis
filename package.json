@@ -1,15 +1,23 @@
 {
+  "engines": {
+    "node": "<=4.3"
+  },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "dev": "echo 'Work in progress'; exit 1",
+    "deploy": "AWS_REGION=eu-west-1 apex deploy"
   },
   "devDependencies": {
+    "child-process-promise": "^2.2.0",
     "eslint": "^3.14.1",
     "eslint-config-standard": "^6.2.1",
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-standard": "^2.0.1",
-    "lerna": "2.0.0-beta.34"
+    "lerna": "2.0.0-beta.34",
+    "slack-cli": "^1.0.18"
   },
   "dependencies": {
+    "@apis/car": "^1.0.0",
     "jest": "^18.1.0"
   }
 }
