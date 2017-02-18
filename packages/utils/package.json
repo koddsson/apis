@@ -1,7 +1,6 @@
 {
-  "name": "utils",
-  "private": true,
-  "version": "1.0.0",
+  "name": "@apis/utils",
+  "version": "1.0.3",
   "description": "Various helper functions for the other packages",
   "main": "index.js",
   "repository": "https://github.com/apis-is/apis",
