@@ -4,7 +4,8 @@
   },
   "scripts": {
     "test": "jest",
-    "lint": "prettier --single-quote --trailing-comma es5 --write \"{packages,__{mocks}__}/**/*.js\""
+    "lint": "prettier --single-quote --trailing-comma es5 --write \"{packages,__{mocks}__}/**/*.js\"",
+    "publish": "lerna publish"
   },
   "devDependencies": {
     "child-process-promise": "^2.2.1",
