@@ -11,3 +11,7 @@ deploy: apply
 		-m "Just deployed a new version"
 destroy:
 	AWS_REGION=eu-west-1 apex infra --env prod destroy
+test:
+	npm test
+lint:
+	npm run lint
