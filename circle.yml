@@ -16,4 +16,5 @@ dependencies:
 
 test:
   override:
+    - git fetch --unshallow
     - yarn test
