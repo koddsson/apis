@@ -10,7 +10,7 @@ machine:
 
 dependencies:
   pre:
-    - curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sh
+    - curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sudo sh
   override:
     - yarn
   cache_directories:
