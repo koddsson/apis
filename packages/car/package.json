@@ -7,7 +7,7 @@
   "author": "Kristjan Oddsson",
   "license": "MIT",
   "dependencies": {
-    "@apis/utils": "^1.0.4",
+    "@apis/utils": "^1.0.5",
     "cheerio": "^0.22.0",
     "request": "^2.79.0"
   }
