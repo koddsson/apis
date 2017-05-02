@@ -10,6 +10,7 @@ machine:
 
 dependencies:
   pre:
+    - sudo apt-get update; sudo apt-get install terraform
     - curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sudo sh
   override:
     - yarn
