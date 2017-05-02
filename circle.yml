@@ -9,6 +9,8 @@ machine:
     PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
 
 dependencies:
+  pre:
+    - curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sh
   override:
     - yarn
   cache_directories:
