@@ -1,0 +1,5 @@
+deployment:
+  production:
+    branch: new-infra
+    commands:
+      - make deploy
