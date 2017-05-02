@@ -10,7 +10,11 @@ machine:
 
 dependencies:
   pre:
-    - sudo apt-get update; sudo apt-get install terraform
+    - curl -O https://releases.hashicorp.com/terraform/0.9.4/terraform_0.9.4_linux_amd64.zip
+    - mkdir -p ~/opt/terraform
+    - unzip terraform_0.9.4_linux_amd64.zip -d ~/opt/terraform
+    - echo "export PATH=$PATH:~/opt/terraform/bin" >> .bash_profile
+    - . .bash_profile
     - curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sudo sh
   override:
     - yarn
