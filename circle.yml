@@ -2,6 +2,7 @@ deployment:
   production:
     branch: new-infra
     commands:
+      - echo $PATH
       - make deploy
 
 machine:
