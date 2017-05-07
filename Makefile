@@ -1,4 +1,4 @@
-deploy: publish apex_deploy terraform_apply
+deploy: lerna_bootstrap lerna_publish apex_deploy terraform_apply
 
 # Terraform commands
 terraform_plan:
@@ -13,8 +13,10 @@ apex_deploy:
 	AWS_REGION=eu-west-1 apex --env prod deploy
 
 # npm commands
-publish:
+lerna_publish:
 	npm run publish
+lerna_bootstrap:
+	npm run bootstrap
 test:
 	npm test
 lint:
