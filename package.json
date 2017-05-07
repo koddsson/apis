@@ -6,13 +6,13 @@
     "test": "jest",
     "lint": "prettier --single-quote --trailing-comma es5 --write \"{packages,__{mocks}__}/**/*.js\"",
     "bootstrap": "lerna bootstrap",
-    "publish": "lerna publish --cd-version=patch --yes"
+    "publish": "lerna publish --cd-version=patch --yes || true"
   },
   "devDependencies": {
     "child-process-promise": "^2.2.1",
-    "lerna": "git://github.com/koddsson/lerna.git#dont-throw-error-on-publish",
-    "prettier": "^1.2.2",
-    "jest": "^19.0.2"
+    "jest": "^19.0.2",
+    "lerna": "^2.0.0-rc.4",
+    "prettier": "^1.2.2"
   },
   "dependencies": {
     "@apis/car": "^1.0.0"

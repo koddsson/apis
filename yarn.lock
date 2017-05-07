@@ -1381,7 +1381,7 @@ is-builtin-module@^1.0.0:
   dependencies:
     builtin-modules "^1.0.0"
 
-is-ci@^1.0.10, is-ci@^1.0.9:
+is-ci@^1.0.9:
   version "1.0.10"
   resolved "https://registry.yarnpkg.com/is-ci/-/is-ci-1.0.10.tgz#f739336b2632365061a9d48270cd56ae3369318e"
   dependencies:
@@ -1906,9 +1906,9 @@ lcid@^1.0.0:
   dependencies:
     invert-kv "^1.0.0"
 
-"lerna@git://github.com/koddsson/lerna.git#dont-throw-error-on-publish":
+lerna@^2.0.0-rc.4:
   version "2.0.0-rc.4"
-  resolved "git://github.com/koddsson/lerna.git#68c1ab18ab9265823f1ea7a551626635557e13aa"
+  resolved "https://registry.yarnpkg.com/lerna/-/lerna-2.0.0-rc.4.tgz#567fc62c1d46190ce5f5ee0f654e0a9c9a63bdba"
   dependencies:
     async "^1.5.0"
     chalk "^1.1.1"
@@ -1926,7 +1926,6 @@ lcid@^1.0.0:
     globby "^6.1.0"
     graceful-fs "^4.1.11"
     inquirer "^3.0.6"
-    is-ci "^1.0.10"
     load-json-file "^2.0.0"
     lodash "^4.17.4"
     minimatch "^3.0.0"
