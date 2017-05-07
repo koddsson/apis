@@ -9,11 +9,11 @@
   },
   "devDependencies": {
     "child-process-promise": "^2.2.1",
-    "lerna": "^2.0.0-rc.4",
-    "prettier": "^1.2.2"
+    "lerna": "git://github.com/koddsson/lerna.git#dont-throw-error-on-publish",
+    "prettier": "^1.2.2",
+    "jest": "^19.0.2"
   },
   "dependencies": {
-    "@apis/car": "^1.0.0",
-    "jest": "^19.0.2"
+    "@apis/car": "^1.0.0"
   }
 }
