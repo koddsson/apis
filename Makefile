@@ -1,14 +1,18 @@
 deploy: publish apex_deploy terraform_apply
 
-plan:
+# Terraform commands
+terraform_plan:
 	AWS_REGION=eu-west-1 apex infra --env prod plan
-apply:
+terraform_apply:
 	AWS_REGION=eu-west-1 apex infra --env prod apply
-apex_deploy:
-	AWS_REGION=eu-west-1 apex --env prod deploy
-destroy:
+terraform_destroy:
 	AWS_REGION=eu-west-1 apex infra --env prod destroy
 
+# Apex commands
+apex_deploy:
+	AWS_REGION=eu-west-1 apex --env prod deploy
+
+# npm commands
 publish:
 	npm run publish
 test:
