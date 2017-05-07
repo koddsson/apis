@@ -2,7 +2,7 @@ deployment:
   production:
     branch: new-infra
     commands:
-      - echo $PATH
+      - alias terraform=~/terraform/terraform
       - make deploy
 
 machine:
@@ -12,10 +12,8 @@ machine:
 dependencies:
   pre:
     - curl -O https://releases.hashicorp.com/terraform/0.9.4/terraform_0.9.4_linux_amd64.zip
-    - mkdir -p ~/opt/terraform
-    - unzip terraform_0.9.4_linux_amd64.zip -d ~/opt/terraform
-    - echo "export PATH=$PATH:~/opt/terraform" >> ~/.bash_profile
-    - . ~/.bash_profile
+    - mkdir -p ~/terraform
+    - unzip terraform_0.9.4_linux_amd64.zip -d ~/terraform
     - curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sudo sh
   override:
     - yarn
