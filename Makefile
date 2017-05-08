@@ -1,4 +1,8 @@
-deploy: lerna_bootstrap lerna_publish apex_deploy terraform_apply
+deploy: git_config lerna_bootstrap lerna_publish apex_deploy terraform_apply
+
+git_config:
+	git config --global user.email "ci@circleci.com"
+	git config --global user.name "CircleCI"
 
 # Terraform commands
 terraform_plan:
