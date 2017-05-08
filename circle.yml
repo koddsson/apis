@@ -13,6 +13,8 @@ dependencies:
     - curl -O https://releases.hashicorp.com/terraform/0.9.4/terraform_0.9.4_linux_amd64.zip
     - unzip terraform_0.9.4_linux_amd64.zip -d ~/bin
     - curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sudo sh
+    - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+
   override:
     - yarn
   cache_directories:
