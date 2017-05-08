@@ -10,10 +10,7 @@ module.exports = number => {
     const url = `http://www.samgongustofa.is/umferd/okutaeki/okutaekjaskra/uppfletting?vq=${carPlate}`;
 
     request.get(
-      {
-        headers: { 'User-Agent': apisUserAgent },
-        url,
-      },
+      { headers: { 'User-Agent': apisUserAgent }, url, },
       (error, response, body) => {
         if (error || response.statusCode !== 200) {
           reject('www.samgongustofa.is refuses to respond or give back data');
