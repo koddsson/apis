@@ -14,7 +14,7 @@ terraform_destroy:
 
 # Apex commands
 apex_deploy:
-	AWS_REGION=eu-west-1 apex --env prod deploy
+	AWS_REGION=eu-west-1 apex --log-level debug --env prod deploy
 
 # npm commands
 lerna_publish:
