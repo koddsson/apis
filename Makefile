@@ -14,6 +14,7 @@ terraform_destroy:
 
 # Apex commands
 apex_deploy:
+	for dir in functions/*; do (cd "$dir" && yarn); done
 	AWS_REGION=eu-west-1 apex --log-level debug --env prod deploy
 
 # npm commands
