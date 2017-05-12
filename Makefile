@@ -1,3 +1,4 @@
+# TODO: Split into multiple commands so that CI will display as seperate outputs for better debugging
 deploy: git_config lerna_bootstrap lerna_publish apex_deploy terraform_apply
 
 git_config:
