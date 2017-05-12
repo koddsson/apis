@@ -25,11 +25,17 @@ resource "aws_api_gateway_deployment" "APIDeployment" {
   stage_description = "${timestamp()}"
 }
 
+data "aws_acm_certificate" "koddsson" {
+  domain   = "koddsson.co.uk"
+  statuses = ["ISSUED"]
+}
+
 resource "aws_api_gateway_domain_name" "koddsson" {
   domain_name = "koddsson.co.uk"
 
   # TODO: Add a certificate here. See: https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name.html
   certificate_name = "koddsson_api"
+  certificate_arn = "${aws_acm_certificate.koddsson.arn}"
 }
 
 resource "aws_api_gateway_base_path_mapping" "mapURLtoAPI" {
