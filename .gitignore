@@ -1,2 +1,5 @@
 node_modules
 *.log
+
+# TODO: Editor specific, remove
+settings.json
