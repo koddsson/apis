@@ -35,7 +35,7 @@ resource "aws_api_gateway_domain_name" "koddsson" {
 
   # TODO: Add a certificate here. See: https://www.terraform.io/docs/providers/aws/r/api_gateway_domain_name.html
   certificate_name = "koddsson_api"
-  certificate_arn = "${aws_acm_certificate.koddsson.arn}"
+  certificate_arn = "${data.aws_acm_certificate.koddsson.arn}"
 }
 
 resource "aws_api_gateway_base_path_mapping" "mapURLtoAPI" {
