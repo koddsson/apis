@@ -3,6 +3,12 @@ variable "apex_environment" {}
 
 data "aws_caller_identity" "current" { }
 
+data "aws_acm_certificate" "koddsson" {
+  provider = "aws.use1"
+  domain   = "koddsson.co.uk"
+  statuses = ["ISSUED"]
+}
+
 provider "aws" {
    # The "default" instance of the provider
   region      = "${var.aws_region}"
@@ -31,12 +37,6 @@ resource "aws_api_gateway_deployment" "APIDeployment" {
   # see this comment and/or thread:
   # https://github.com/hashicorp/terraform/issues/6613#issuecomment-289799360
   stage_description = "${timestamp()}"
-}
-
-data "aws_acm_certificate" "koddsson" {
-  provider = "aws.use1"
-  domain   = "koddsson.co.uk"
-  statuses = ["ISSUED"]
 }
 
 resource "aws_api_gateway_domain_name" "koddsson" {
