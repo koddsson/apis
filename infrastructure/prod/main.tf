@@ -36,7 +36,6 @@ resource "aws_api_gateway_base_path_mapping" "mapURLtoAPI" {
   stage_name  = "${aws_api_gateway_deployment.APIDeployment.stage_name}"
   domain_name = "${aws_api_gateway_domain_name.koddsson.domain_name}"
 }
-»
 
 output "API Invoke URL" {
   value       = "https://${aws_api_gateway_rest_api.APIGateway.id}.execute-api.${var.aws_region}.amazonaws.com/${var.apex_environment}"
