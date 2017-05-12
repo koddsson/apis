@@ -4,7 +4,15 @@ variable "apex_environment" {}
 data "aws_caller_identity" "current" { }
 
 provider "aws" {
+   # The "default" instance of the provider
   region      = "${var.aws_region}"
+}
+
+provider "aws" {
+  # us-east-1 instance, this is needed for ACM certsA
+  # see: https://github.com/hashicorp/terraform/issues/10957#issuecomment-269653276
+  region = "us-east-1"
+  alias = "use1"
 }
 
 resource "aws_api_gateway_rest_api" "APIGateway" {
@@ -26,6 +34,7 @@ resource "aws_api_gateway_deployment" "APIDeployment" {
 }
 
 data "aws_acm_certificate" "koddsson" {
+  provider = "aws.use1"
   domain   = "koddsson.co.uk"
   statuses = ["ISSUED"]
 }
