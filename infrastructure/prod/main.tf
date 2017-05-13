@@ -49,7 +49,23 @@ resource "aws_api_gateway_domain_name" "koddsson" {
   certificate_arn = "${data.aws_acm_certificate.koddsson.arn}"
 }
 
-# TODO: Create the route53 A record alias to the cloudfront url created in "aws_api_gateway_domain_name.koddsson"
+data "aws_route53_zone" "koddsson" {
+  name         = "koddsson.co.uk."
+  private_zone = true
+}
+
+resource "aws_route53_record" "koddsson" {
+  zone_id = "${aws_route53_zone.example.id}"
+
+  name = "${aws_api_gateway_domain_name.koddsson.domain_name}"
+  type = "A"
+
+  alias {
+    name                   = "${aws_api_gateway_domain_name.koddsson.cloudfront_domain_name}"
+    zone_id                = "${aws_api_gateway_domain_name.koddsson.cloudfront_zone_id}"
+    evaluate_target_health = true
+  }
+}
 
 resource "aws_api_gateway_base_path_mapping" "mapURLtoAPI" {
   api_id      = "${aws_api_gateway_rest_api.APIGateway.id}"
