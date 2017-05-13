@@ -55,7 +55,7 @@ data "aws_route53_zone" "koddsson" {
 }
 
 resource "aws_route53_record" "koddsson" {
-  zone_id = "${aws_route53_zone.koddsson.id}"
+  zone_id = "${data.aws_route53_zone.koddsson.id}"
 
   name = "${aws_api_gateway_domain_name.koddsson.domain_name}"
   type = "A"
