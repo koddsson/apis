@@ -1,6 +1,10 @@
 variable "aws_region" { }
 variable "apex_environment" {}
 
+# TODO: 
+#  - Setup staging environment
+#  - Encrypt '*.tfstate*' files(?)
+
 data "aws_caller_identity" "current" { }
 
 data "aws_acm_certificate" "koddsson" {
@@ -44,6 +48,8 @@ resource "aws_api_gateway_domain_name" "koddsson" {
 
   certificate_arn = "${data.aws_acm_certificate.koddsson.arn}"
 }
+
+# TODO: Create the route53 A record alias to the cloudfront url created in "aws_api_gateway_domain_name.koddsson"
 
 resource "aws_api_gateway_base_path_mapping" "mapURLtoAPI" {
   api_id      = "${aws_api_gateway_rest_api.APIGateway.id}"
