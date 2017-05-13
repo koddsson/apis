@@ -1,7 +1,7 @@
-const $ = require('cheerio');
-const request = require('request');
+const $ = require("cheerio");
+const request = require("request");
 
-const apisUserAgent = require('@apis/utils').apisUserAgent;
+const apisUserAgent = require("@apis/utils").apisUserAgent;
 
 module.exports = number => {
   return new Promise((resolve, reject) => {
@@ -10,17 +10,17 @@ module.exports = number => {
     const url = `http://www.samgongustofa.is/umferd/okutaeki/okutaekjaskra/uppfletting?vq=${carPlate}`;
 
     request.get(
-      { headers: { 'User-Agent': apisUserAgent }, url, },
+      { headers: { "User-Agent": apisUserAgent }, url },
       (error, response, body) => {
         if (error || response.statusCode !== 200) {
-          reject('www.samgongustofa.is refuses to respond or give back data');
+          reject("www.samgongustofa.is refuses to respond or give back data");
         }
 
         const data = $(body);
         const fields = [];
 
-        data.find('.vehicleinfo ul li').each(function() {
-          const val = $(this).find('span').text();
+        data.find(".vehicleinfo ul li").each(function() {
+          const val = $(this).find("span").text();
           fields.push(val);
         });
 
@@ -28,12 +28,12 @@ module.exports = number => {
           resolve({
             type: fields[0],
             subType: fields[0].substring(
-              fields[0].indexOf('-') + 2,
-              fields[0].indexOf('(') - 1
+              fields[0].indexOf("-") + 2,
+              fields[0].indexOf("(") - 1
             ),
             color: fields[0].substring(
-              fields[0].indexOf('(') + 1,
-              fields[0].indexOf(')')
+              fields[0].indexOf("(") + 1,
+              fields[0].indexOf(")")
             ),
             registryNumber: fields[1],
             number: fields[2],
@@ -42,7 +42,7 @@ module.exports = number => {
             pollution: fields[5],
             weight: fields[6],
             status: fields[7],
-            nextCheck: fields[8],
+            nextCheck: fields[8]
           });
         } else {
           reject(`No car found with the registry number ${number}`);
