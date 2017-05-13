@@ -51,7 +51,6 @@ resource "aws_api_gateway_domain_name" "koddsson" {
 
 data "aws_route53_zone" "koddsson" {
   name         = "koddsson.co.uk."
-  private_zone = true
 }
 
 resource "aws_route53_record" "koddsson" {
