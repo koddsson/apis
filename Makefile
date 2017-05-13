@@ -1,6 +1,3 @@
-# TODO: Split into multiple commands so that CI will display as seperate outputs for better debugging
-deploy: git_config lerna_bootstrap lerna_publish apex_deploy terraform_apply
-
 git_config:
 	git config --global user.email "ci@circleci.com"
 	git config --global user.name "CircleCI"
@@ -19,7 +16,7 @@ apex_deploy:
 	AWS_REGION=eu-west-1 apex --log-level debug --env prod deploy
 
 # npm commands
-lerna_publish:
+lerna_publish: lerna_bootstrap
 	npm run publish
 lerna_bootstrap:
 	npm run bootstrap

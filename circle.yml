@@ -2,7 +2,10 @@ deployment:
   production:
     branch: new-infra
     commands:
-      - make deploy
+      - make git_config
+      - make lerna_publish
+      - make apex_deploy
+      - make terraform_apply
 
 machine:
   environment:
