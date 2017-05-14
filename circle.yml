@@ -21,7 +21,7 @@ test:
     - yarn test
 
 deployment:
-  starging:
+  staging:
     branch: staging
     commands:
       - make git_config
