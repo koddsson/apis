@@ -33,4 +33,5 @@ dependencies:
 test:
   override:
     - git fetch --unshallow
+    - ENVIRONMENT=$$CIRCLE_BRANCH make terraform_plan
     - yarn test
