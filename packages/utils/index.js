@@ -9,7 +9,7 @@
  *
  * Inspiration taken from https://support.google.com/webmasters/answer/1061943?hl=en
  *
- * TODO: Change that URL before landing on master
+ * TODO: Change that URL before landing on production
  */
 module.export = apisUserAgent =
-  "Mozilla/5.0 (compatible; Apisbot/0.1; +https://github.com/koddsson/apis/blob/master/apis-bot.md)";
+  "Mozilla/5.0 (compatible; Apisbot/0.1; +https://github.com/koddsson/apis/blob/production/apis-bot.md)";
