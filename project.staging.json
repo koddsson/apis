@@ -1,6 +1,6 @@
 {
   "name": "apis",
-  "description": "apis.is",
+  "description": "apis",
   "memory": 128,
   "timeout": 5,
   "role": "arn:aws:iam::437761581993:role/apis_lambda_function",
