@@ -51,7 +51,7 @@ EOF
 }
 
 resource "aws_lambda_permission" "APIGateway_CarEndpoint_Auth" {
-  statement_id  = "AllowExecutionFromAPIGateway"
+  statement_id  = "AllowFromAPIGateway"
   action        = "lambda:InvokeFunction"
   function_name = "${var.apex_function_car}"
   principal     = "apigateway.amazonaws.com"
