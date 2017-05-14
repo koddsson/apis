@@ -3,7 +3,7 @@ deployment:
     branch: staging
     commands:
       - make git_config
-      - make lerna_publish -- -canary
+      - make lerna_publish FLAGS="--canary"
       - ENVIRONMENT=staging make apex_deploy
       - ENVIRONMENT=staging make terraform_apply
   production:
