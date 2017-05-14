@@ -23,7 +23,7 @@ resource "aws_api_gateway_integration" "CarIntegration" {
   http_method             = "${aws_api_gateway_method.CarMethod.http_method}"
   type                    = "AWS"
   integration_http_method = "POST" # Must be POST for lambda integration
-  credentials             = "${aws_iam_role.gateway_invoke_lambda.arn}"
+  credentials             = "${aws_iam_role.gateway_invoke_lambda_production.arn}"
   uri                     = "arn:aws:apigateway:${var.aws_region}:lambda:path/2015-03-31/functions/${var.apex_function_car}/invocations"
 
   request_templates {

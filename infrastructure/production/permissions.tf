@@ -1,5 +1,5 @@
-resource "aws_iam_role" "gateway_invoke_lambda" {
-  name = "gateway_invoke_lambda"
+resource "aws_iam_role" "gateway_invoke_lambda_production" {
+  name = "gateway_invoke_lambda_production"
   assume_role_policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -17,9 +17,9 @@ resource "aws_iam_role" "gateway_invoke_lambda" {
 EOF
 }
 
-resource "aws_iam_role_policy" "invoke_lambda" {
-  name = "invoke_lambda"
-  role = "${aws_iam_role.gateway_invoke_lambda.id}"
+resource "aws_iam_role_policy" "invoke_lambda_production" {
+  name = "invoke_lambda_production"
+  role = "${aws_iam_role.gateway_invoke_lambda_production.id}"
   policy = <<EOF
 {
   "Version": "2012-10-17",
