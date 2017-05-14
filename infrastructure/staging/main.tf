@@ -8,7 +8,7 @@ data "aws_caller_identity" "current" { }
 
 data "aws_acm_certificate" "koddsson" {
   provider = "aws.use1"
-  domain   = "koddsson.co.uk"
+  domain   = "staging.koddsson.co.uk"
   statuses = ["ISSUED"]
 }
 
@@ -43,13 +43,13 @@ resource "aws_api_gateway_deployment" "APIDeployment" {
 }
 
 resource "aws_api_gateway_domain_name" "koddsson" {
-  domain_name = "koddsson.co.uk"
+  domain_name = "staging.koddsson.co.uk"
 
   certificate_arn = "${data.aws_acm_certificate.koddsson.arn}"
 }
 
 data "aws_route53_zone" "koddsson" {
-  name         = "koddsson.co.uk."
+  name         = "staging.koddsson.co.uk."
 }
 
 resource "aws_route53_record" "koddsson" {

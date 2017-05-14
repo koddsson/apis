@@ -1,11 +1,18 @@
 deployment:
+  starging:
+    branch: staging
+    commands:
+      - make git_config
+      - make lerna_publish -- -canary
+      - ENVIRONMENT=staging make apex_deploy
+      - ENVIRONMENT=staging make terraform_apply
   production:
-    branch: new-infra
+    branch: master
     commands:
       - make git_config
       - make lerna_publish
-      - make apex_deploy
-      - make terraform_apply
+      - ENVIRONMENT=production make apex_deploy
+      - ENVIRONMENT=production make terraform_apply
 
 machine:
   environment:

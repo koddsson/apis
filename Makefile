@@ -4,16 +4,16 @@ git_config:
 
 # Terraform commands
 terraform_plan:
-	AWS_REGION=eu-west-1 apex infra --env prod plan
+	AWS_REGION=eu-west-1 apex infra --env $ENVIRONMENT plan
 terraform_apply:
-	AWS_REGION=eu-west-1 apex infra --env prod apply
+	AWS_REGION=eu-west-1 apex infra --env $ENVIRONMENT apply
 terraform_destroy:
-	AWS_REGION=eu-west-1 apex infra --env prod destroy
+	AWS_REGION=eu-west-1 apex infra --env $ENVIRONMENT destroy
 
 # Apex commands
 apex_deploy:
 	for dir in functions/*; do (cd "$$dir" && yarn); done
-	AWS_REGION=eu-west-1 apex --log-level debug --env prod deploy
+	AWS_REGION=eu-west-1 apex --log-level debug --env $ENVIRONMENT deploy
 
 # npm commands
 lerna_publish: lerna_bootstrap
