@@ -42,11 +42,12 @@ resource "aws_api_gateway_deployment" "APIDeployment" {
   stage_description = "${timestamp()}"
 }
 
-resource "aws_api_gateway_domain_name" "koddsson" {
-  domain_name = "staging.koddsson.co.uk"
-
-  certificate_arn = "${data.aws_acm_certificate.koddsson.arn}"
-}
+# Maybe this just needs to run initially and subsequent runs only need to reference this resource via a data attribute?
+#resource "aws_api_gateway_domain_name" "koddsson" {
+#  domain_name = "staging.koddsson.co.uk"
+#
+#  certificate_arn = "${data.aws_acm_certificate.koddsson.arn}"
+#}
 
 data "aws_route53_zone" "koddsson" {
   name         = "koddsson.co.uk."
