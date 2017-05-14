@@ -1,4 +1,5 @@
-.DS_Store
 node_modules
-config/*.config.json
-npm-debug.log
+*.log
+
+# TODO: Editor specific, remove
+settings.json

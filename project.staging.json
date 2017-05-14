@@ -1,0 +1,8 @@
+{
+  "name": "apis",
+  "description": "apis.is",
+  "memory": 128,
+  "timeout": 5,
+  "role": "arn:aws:iam::437761581993:role/apis_lambda_function",
+  "environment": {}
+}

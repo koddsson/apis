@@ -1,0 +1,36 @@
+deployment:
+  starging:
+    branch: staging
+    commands:
+      - make git_config
+      - make lerna_publish -- -canary
+      - ENVIRONMENT=staging make apex_deploy
+      - ENVIRONMENT=staging make terraform_apply
+  production:
+    branch: master
+    commands:
+      - make git_config
+      - make lerna_publish
+      - ENVIRONMENT=production make apex_deploy
+      - ENVIRONMENT=production make terraform_apply
+
+machine:
+  environment:
+    PATH: "${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin"
+
+dependencies:
+  pre:
+    - curl -O https://releases.hashicorp.com/terraform/0.9.4/terraform_0.9.4_linux_amd64.zip
+    - unzip terraform_0.9.4_linux_amd64.zip -d ~/bin
+    - curl https://raw.githubusercontent.com/apex/apex/master/install.sh | sudo sh
+    - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+
+  override:
+    - yarn
+  cache_directories:
+    - ~/.cache/yarn
+
+test:
+  override:
+    - git fetch --unshallow
+    - yarn test
