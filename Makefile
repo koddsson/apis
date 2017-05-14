@@ -17,7 +17,7 @@ apex_deploy:
 
 # npm commands
 lerna_publish: lerna_bootstrap
-	npm run publish
+	npm run publish -- $$FLAGS
 lerna_bootstrap:
 	npm run bootstrap
 test:
