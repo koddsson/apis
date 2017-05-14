@@ -49,7 +49,7 @@ resource "aws_api_gateway_domain_name" "koddsson" {
 }
 
 data "aws_route53_zone" "koddsson" {
-  name         = "staging.koddsson.co.uk."
+  name         = "koddsson.co.uk."
 }
 
 resource "aws_route53_record" "koddsson" {
