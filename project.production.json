@@ -1,7 +1,7 @@
 {
   "name": "apis_production",
   "description": "apis_production",
-  "memory": 128,
+  "memory": 512,
   "timeout": 5,
   "role": "arn:aws:iam::437761581993:role/apis_production_lambda_function",
   "environment": {}
