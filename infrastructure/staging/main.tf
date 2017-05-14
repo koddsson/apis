@@ -14,7 +14,7 @@ data "aws_acm_certificate" "koddsson" {
 
 provider "aws" {
    # The "default" instance of the provider
-  region      = "${var.aws_region}"
+  region = "${var.aws_region}"
 }
 
 provider "aws" {
