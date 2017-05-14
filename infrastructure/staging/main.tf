@@ -35,11 +35,6 @@ resource "aws_api_gateway_deployment" "APIDeployment" {
 
   # TODO: Either loop somehow through integrations here or document this nuance
   depends_on = ["aws_api_gateway_integration.CarIntegration"]
-
-  # forces to 'create' a new deployment each run
-  # see this comment and/or thread:
-  # https://github.com/hashicorp/terraform/issues/6613#issuecomment-289799360
-  stage_description = "${timestamp()}"
 }
 
 resource "aws_api_gateway_domain_name" "koddsson" {
