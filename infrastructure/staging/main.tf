@@ -25,7 +25,7 @@ provider "aws" {
 }
 
 resource "aws_api_gateway_rest_api" "APIGateway" {
-  name        = "APIGateway"
+  name        = "apis.is (staging)"
   description = "Entry point API for all requests"
 }
 
