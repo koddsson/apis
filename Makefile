@@ -24,3 +24,5 @@ test:
 	npm test
 lint:
 	npm run lint
+npm_upgrade:
+	find . -iname package.json -not -path "**/node_modules/**" -execdir yarn upgrade \;
