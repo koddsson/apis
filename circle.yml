@@ -17,7 +17,7 @@ dependencies:
 test:
   override:
     - git fetch --unshallow
-    -  [[ ${CIRCLE_BRANCH} = "production" ]] && ENVIRONMENT="production" || a="staging" make terraform_plan
+    - make terraform_plan
     - yarn test
 
 deployment:

@@ -6,7 +6,8 @@ git_config:
 terraform_plan:
 	AWS_REGION=eu-west-1 apex infra --env $$ENVIRONMENT plan
 terraform_apply:
-	AWS_REGION=eu-west-1 apex infra --env $$ENVIRONMENT apply
+  [[ ${CIRCLE_BRANCH} = "production" ]] && ENVIRONMENT="production" || ENVIRONMENT="staging"
+	AWS_REGION=eu-west-1 apex infra --env $ENVIRONMENT apply
 terraform_destroy:
 	AWS_REGION=eu-west-1 apex infra --env $$ENVIRONMENT destroy
 
