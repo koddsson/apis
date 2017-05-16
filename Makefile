@@ -8,11 +8,7 @@ git_config:
 
 # Terraform commands
 terraform_plan:
-	if [ "${CIRCLE_BRANCH}" = "production" ]; then \
-		AWS_REGION=eu-west-1 apex infra --env production plan; \
-	else \
-		AWS_REGION=eu-west-1 apex infra --env staging plan; \
-	fi
+	AWS_REGION=eu-west-1 && [[ "${CIRCLE_BRANCH}" = "production" ]] && apex infra --env production plan || apex infra --env staging plan
 terraform_apply:
 	AWS_REGION=eu-west-1 apex infra --env $$ENVIRONMENT apply
 terraform_destroy:
