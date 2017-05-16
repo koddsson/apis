@@ -18,7 +18,7 @@ test:
   override:
     - git fetch --unshallow
     - make terraform_plan
-    - yarn test
+    - JEST_JUNIT_OUTPUT="$CIRCLE_TEST_REPORTS/jest/junit.xml" yarn test
 
 deployment:
   staging:

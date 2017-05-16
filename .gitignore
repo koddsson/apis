@@ -1,5 +1,7 @@
 node_modules
 *.log
+test-reports
+junit.xml
 
 # TODO: Editor specific, remove
 settings.json
