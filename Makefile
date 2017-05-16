@@ -8,10 +8,10 @@ git_config:
 
 # Terraform commands
 terraform_plan:
-	if [ "${CIRCLE_BRANCH}" = "production" ]; then
-		AWS_REGION=eu-west-1 apex infra --env production plan
-	else	
-		AWS_REGION=eu-west-1 apex infra --env staging plan
+	if [ "${CIRCLE_BRANCH}" = "production" ]; then \
+		AWS_REGION=eu-west-1 apex infra --env production plan; \
+	else \
+		AWS_REGION=eu-west-1 apex infra --env staging plan; \
 	fi
 terraform_apply:
 	AWS_REGION=eu-west-1 apex infra --env $$ENVIRONMENT apply
