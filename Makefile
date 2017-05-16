@@ -1,3 +1,5 @@
+SHELL := /bin/bash
+
 # TODO: Remove AWS_REGION and stick in direnv?
 
 git_config:
