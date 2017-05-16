@@ -3,7 +3,6 @@
   "description": "apis",
   "memory": 128,
   "timeout": 5,
-  // TODO: Destroy and re initialize this function with "staging" in name
   "role": "arn:aws:iam::437761581993:role/apis_lambda_function",
   "environment": {}
 }
