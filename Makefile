@@ -1,16 +1,18 @@
+# TODO: Remove AWS_REGION and stick in direnv?
+
 git_config:
 	git config --global user.email "ci@circleci.com"
 	git config --global user.name "CircleCI"
 
 # Terraform commands
 terraform_plan:
-	AWS_REGION=eu-west-1 apex infra --env $$ENVIRONMENT plan
-terraform_apply:
 	if [ "$${CIRCLE_BRANCH}" = "production" ]; then
-		AWS_REGION=eu-west-1 apex infra --env production apply
+		AWS_REGION=eu-west-1 apex infra --env production plan
 	else	
-		AWS_REGION=eu-west-1 apex infra --env staging apply
+		AWS_REGION=eu-west-1 apex infra --env staging plan
 	fi
+terraform_apply:
+	AWS_REGION=eu-west-1 apex infra --env $$ENVIRONMENT apply
 terraform_destroy:
 	AWS_REGION=eu-west-1 apex infra --env $$ENVIRONMENT destroy
 
