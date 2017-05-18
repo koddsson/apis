@@ -35,7 +35,7 @@ resource "aws_api_gateway_deployment" "APIDeployment" {
 
   # TODO: Either loop somehow through integrations here or document this nuance
   depends_on = [
-    "aws_api_gateway_integration.CarIntegration"
+    "aws_api_gateway_integration.CarIntegration",
     "aws_api_gateway_integration.EarthquakesIntegration"
   ]
 }
