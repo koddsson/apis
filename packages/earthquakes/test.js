@@ -1,3 +1,4 @@
+"use strict";
 /* global expect, it, describe, jest */
 
 jest.mock("request");
