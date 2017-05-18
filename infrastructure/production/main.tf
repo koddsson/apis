@@ -34,7 +34,10 @@ resource "aws_api_gateway_deployment" "APIDeployment" {
   stage_name  = "${var.apex_environment}"
 
   # TODO: Either loop somehow through integrations here or document this nuance
-  depends_on = ["aws_api_gateway_integration.CarIntegration"]
+  depends_on = [
+    "aws_api_gateway_integration.CarIntegration"
+    "aws_api_gateway_integration.EarthquakesIntegration"
+  ]
 }
 
 resource "aws_api_gateway_domain_name" "koddsson" {
