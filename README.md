@@ -24,7 +24,7 @@ To run the project locally, first clone this repository...
 $ git clone https://github.com/apis-is/apis.git
 ```
 
-... install the dependencies and run the project.
+.... install the dependencies and run the project.
 
 ```sh
 $ npm install
@@ -38,6 +38,22 @@ To run the tests:
 ```sh
 $ npm test
 ```
+
+The tests utilize a man-in-the-middle library called [nock](https://github.com/node-nock/nock) that
+intercepts requests that the tests made and respond with data from disk. The data was generated using
+the [record feature](https://github.com/node-nock/nock#recording) and saved in [`mock-data.json`](mock-data.json).
+
+If a endpoints data source has changed and the we need to re-record this data we can simply set the
+env variable `RECORD_MOCK_DATA` to a truthy value and run the tests. This will disable nock in the tests
+and make requests to each endpoints data source and save that to disk.
+
+```sh
+RECORD_MOCK_DATA=true npm test
+```
+
+Newly added endpoints should mock the endpoints data source using the `nock` API since this initial
+data mocking was only made to help migrate to a mocking library. See the [original PR](https://github.com/apis-is/apis/pull/376)
+for more info.
 
 ## Adding a new Endpoint
 
